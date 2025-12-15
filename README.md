@@ -31,3 +31,16 @@ https://www.figma.com/design/CgL2fnZkT6dtPA21bnC4hd/HSL-LABS-Design-with-wirefra
 ## Notes
 - Accessibility: semantic HTML, ARIA labels for interactive elements, focus outlines preserved.
 - Tailwind: utility-first structure with componentization in Blade.
+
+
+
+2️⃣ Generate App Key
+php artisan key:generate
+
+3️⃣ Run Migrations
+php artisan migrate
+
+6️⃣ Clear & Cache Config (Recommended)
+php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
