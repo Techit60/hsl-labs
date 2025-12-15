@@ -2,6 +2,9 @@
 
 This repository contains a responsive dashboard prototype built with Tailwind CSS and Blade-compatible component structure for the HSL Labs Front-End Designer assignment.
 
+##Repository link
+https://github.com/Crickdev/hsl-labs.git
+
 ## Installation
 "php": "^8.2",
 "laravel/framework": "^12.0",
@@ -22,6 +25,8 @@ This repository contains a responsive dashboard prototype built with Tailwind CS
 ## Figma hifi Design url
 
 https://www.figma.com/design/CgL2fnZkT6dtPA21bnC4hd/HSL-LABS-Design-with-wireframe?node-id=0-1&t=rmrHXt3dCTt4XdyX-1
+
+ 
 
 ## Notes
 - Accessibility: semantic HTML, ARIA labels for interactive elements, focus outlines preserved.
