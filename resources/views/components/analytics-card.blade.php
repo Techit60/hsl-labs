@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Legend -->
-                <div class="mt-6 flex flex-wrap justify-center gap-2 w-full">
+                <div class="mt-6 flex  justify-center gap-2 w-full">
                     <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                         <div class="w-3 h-3 bg-purple-400 rounded-full flex-shrink-0" aria-hidden="true"></div>
                         <span class="text-sm font-medium text-gray-700">Sale</span>
