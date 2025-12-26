@@ -1,4 +1,7 @@
-  <header class="flex flex-wrap p-6 gap-5 pb-0 items-center justify-between mb-6">
+@props([
+    'title' => 'Smart Filter',
+])  
+<header class="flex flex-wrap p-6 gap-5 pb-0 items-center justify-between mb-6">
         <h2
             id="action-table-title"
             class="text-lg font-bold text-gray-800"
@@ -6,7 +9,7 @@
             {{ $title }}
         </h2>
 
-        <div class="flex items-center gap-2 ml-auto">
+        <div class="flex items-center gap-2 lg:ml-auto">
             <div class="relative grow-0 shrink-0 basis-[165px]">
                 <label for="action-search" class="sr-only">
                     Search actions

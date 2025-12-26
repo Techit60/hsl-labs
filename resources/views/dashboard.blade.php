@@ -25,39 +25,35 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     <x-kpi-card
-                        title="Total Orders"
+                        title="Patients"
                         value="120"
                         icon="assets/images/icons/heart.svg"
-                        trend="5% Patients"
-                        trendUp="↑ 3% from last week"
-                        background="#4A90E2"
+                        trend="51"
+                        background="linear-gradient(79.81deg,_#4188F2_7.62%,_#4188F2_41.63%,_#0066FF_94.59%)"
                     />
 
                     <x-kpi-card
                         title="Revenue Today"
                         value="62"
                         icon="assets/images/icons/order.svg"
-                        trend="New orders"
-                        trendUp="↑ 3% from last week"
-                        background="#4A90E2"
+                        trend="32"
+                        background="linear-gradient(79.81deg,_#FDA090_7.62%,_#F98381_41.63%,_#F66C74_94.59%)"
                     />
 
                     <x-kpi-card
-                        title="Active Users"
+                           title="Active Users"
                         value="1250"
                         icon="assets/images/icons/inventory.svg"
-                        trend="Current Stock"
-                        trendUp="↓ 2% from last week"
-                        background="#E74C3C"
+                        trend="4"
+                        background="linear-gradient(79.81deg,_#F0BD42_7.62%,_#FEBA3C_41.63%,_#EE9700_94.59%)"
                     />
 
                     <x-kpi-card
                         title="Pending Tasks"
                         value="25"
                         icon="assets/images/icons/tasks.svg"
-                        trend="Tasks Completed"
-                        trendUp="↑ 2% from last week"
-                        background="#10847E"
+                        trend="62"
+                        background="linear-gradient(79.81deg,_#24ACA5_7.62%,_#259C96_41.63%,_#10847E_94.59%)"
                     />
                 </div>
             </section>
@@ -74,23 +70,32 @@
                         class="col-span-12 md:col-span-6 lg:col-span-4"
                         title="Sales Overview"
                         chartType="line"
+                        height="280px"
+
                     />
 
                     <x-analytics-card
                         class="col-span-12 md:col-span-6 lg:col-span-4"
                         title="Top Products"
                         chartType="bar"
+                        height="280px"
+
                     />
 
                     <x-analytics-card
                         class="col-span-12 md:col-span-6 lg:col-span-4"
                         title="Customer Distribution"
                         chartType="doughnut"
+                        height="280px"
+
                     />
 
                     <!-- ACTION TABLE -->
-                    <div class="col-span-12 lg:col-span-8 order-1 lg:order-none">
-                        <x-action-table />
+                    <div class="col-span-12 lg:col-span-8 order-1  lg:order-none">
+                        <div class=" bg-white rounded-2xl lg:p-6 shadow-sm focus:outline-none">
+                        <x-filter-bar />
+                        <x-Table />
+</div>
                     </div>
 
                     <x-analytics-card
@@ -98,6 +103,7 @@
                         title="Customer Distribution"
                         chartType="pie"
                         description="Customers by region"
+                        height="253px"
                     />
 
                 </div>

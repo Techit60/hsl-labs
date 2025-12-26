@@ -1,7 +1,6 @@
 <div class="col-span-12 md:col-span-6 lg:col-span-4">
     <div class="bg-white rounded-2xl h-full flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
         
-        <!-- Header Section -->
         <div class="flex items-start justify-between mb-6">
             <div class="flex-1">
                 <h3 class="text-lg font-bold text-gray-800" id="chart-title-{{ $chartType }}-{{ Str::slug($title) }}">
@@ -20,29 +19,22 @@
             </button>
         </div>
 
-        <!-- Chart Content -->
         @if($chartType === 'pie')
             <div class="flex flex-col items-center" role="img" aria-labelledby="chart-title-{{ $chartType }}-{{ Str::slug($title) }} chart-desc-{{ $chartType }}-{{ Str::slug($title) }}">
-                <!-- SVG Pie Chart (already animated with CSS transition) -->
                 <div class="relative w-[160px] h-[160px] lg:w-[220px] lg:h-[220px] mb-4">
                     <svg class="w-full h-full transform -rotate-90" viewBox="0 0 200 200" aria-hidden="true">
                         <title>Pie chart showing transaction distribution</title>
-                        <!-- Background circle -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f3f4f6" stroke-width="20"/>
-                        <!-- Return segment (40%) -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f97316" stroke-width="20" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f3f4f6" stroke-width="25"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f97316" stroke-width="25" 
                                 stroke-dasharray="201 302" stroke-linecap="round" aria-label="Return: 40%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
-                        <!-- Sale segment (20%) -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#a78bfa" stroke-width="20" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#a78bfa" stroke-width="25" 
                                 stroke-dasharray="100.5 402.5" stroke-dashoffset="-201" stroke-linecap="round" aria-label="Sale: 20%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
-                        <!-- Distribute segment (30%) -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#10847E" stroke-width="20" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#10847E" stroke-width="25" 
                                 stroke-dasharray="150.75 352.25" stroke-dashoffset="-301.5" stroke-linecap="round" aria-label="Distribute: 30%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
                     </svg>
-                    <!-- Center text -->
                     <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                         <div class="text-3xl lg:text-4xl font-bold text-gray-800" aria-hidden="true">80%</div>
                         <div class="text-sm text-gray-500 mt-1" aria-hidden="true">Success Rate</div>
@@ -55,7 +47,7 @@
                 </div>
 
                 <!-- Legend -->
-                <div class="mt-6 flex flex-wrap justify-center gap-4 w-full">
+                <div class="mt-6 flex flex-wrap justify-center gap-2 w-full">
                     <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                         <div class="w-3 h-3 bg-purple-400 rounded-full flex-shrink-0" aria-hidden="true"></div>
                         <span class="text-sm font-medium text-gray-700">Sale</span>
@@ -80,7 +72,7 @@
                 <canvas 
                     id="chart-{{ $chartType }}-{{ Str::slug($title) }}" 
                     aria-labelledby="chart-title-{{ $chartType }}-{{ Str::slug($title) }} chart-desc-{{ $chartType }}-{{ Str::slug($title) }}"
-                    role="img" class="h-[auto] lg:h-[280px]" >
+                    role="img" class="h-[auto] lg:h-[{{ $height }}] " >
                 </canvas>
 
                 <!-- Accessible description -->
@@ -96,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('chart-{{ $chartType }}-{{ Str::slug($title) }}');
     if (!canvas) return;
 
-    // Updated Common Options with Proper Animation
     const commonOptions = {
         responsive: true,
         maintainAspectRatio: false,
@@ -118,23 +109,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 labels: ['10am', '11am', '12pm', '01pm', '02pm', '03pm', '04pm', '05pm'],
                 datasets: [{
                     label: 'Sales',
-                    data: [45, 38, 62, 50, 42, 55, 25, 45],
-                    borderColor: '#10847E',
-                    backgroundColor: function(context) {
-                        const ctx = context.chart.ctx;
-                        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                        gradient.addColorStop(0, 'rgba(16, 132, 126, 0.15)');
-                        gradient.addColorStop(1, 'rgba(16, 132, 126, 0.01)');
-                        return gradient;
-                    },
-                    borderWidth: 3,
+                    data: [40,22, 38, 20, 40, 55, 25, 60],
+            borderColor: function(context) {
+                const chart = context.chart;
+                const { ctx, chartArea } = chart;
+
+                if (!chartArea) {
+                    return '#6C9EEA';
+                }
+
+                const gradient = ctx.createLinearGradient(
+                    chartArea.left, 0,
+                    chartArea.right, 0
+                );
+                gradient.addColorStop(0, '#6C9EEA');     
+                gradient.addColorStop(1, '#0066FF');    
+
+                return gradient;
+            },
+
+            backgroundColor: function(context) {
+                const chart = context.chart;
+                const { ctx, chartArea } = chart;
+
+                if (!chartArea) return 'rgba(16, 132, 126, 0.15)';
+
+                const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                gradient.addColorStop(0, 'rgba(108, 158, 234, 0.2)'); 
+                gradient.addColorStop(1, 'rgba(0, 102, 255, 0.02)');
+                return gradient;
+            },
+                    borderWidth: 6,
                     pointBackgroundColor: '#ffffff',
                     pointBorderColor: '#10847E',
-                    pointBorderWidth: 2.5,
+                    pointBorderWidth: 4,
                     pointRadius: 4,
                     pointHoverRadius: 7,
-                    pointHoverBorderWidth: 3,
-                    tension: 0.4,
+                    pointHoverBorderWidth: 6,
+                    tension: 0.5,
                     fill: true
                 }]
             },
@@ -149,14 +161,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     ...commonOptions.plugins,
                     tooltip: { 
                         enabled: true,
-                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                        titleColor: '#94a3b8',
+                        backgroundColor: '#0066FF',
+                        titleColor: '#fff',
                         bodyColor: '#ffffff',
-                        padding: 14,
+                        padding: 25,
                         displayColors: false,
-                        borderColor: 'rgba(148, 163, 184, 0.1)',
-                        borderWidth: 1,
-                        cornerRadius: 8,
+                       boxShadow: '0px 4px 7px rgba(3, 2, 41, 0.07)',
+                        cornerRadius: 10,
+                        width: 100,
                         titleFont: { size: 11, weight: '600' },
                         bodyFont: { size: 13, weight: 'bold' },
                         callbacks: {
