@@ -4,91 +4,110 @@
 @section('page-title', 'Daily Operations Dashboard')
 
 @section('content')
-<div class="grid   grid-cols-12">
-    <div class="lg:col-span-2">
-        @include('components.layout.sidebar')
-    </div>
+<div class="flex">
 
-    <div class="col-span-12 lg:col-span-10">
-        @include('components.layout.header')
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-white basis-[18%] h-screen fixed lg:static lg:left-0 -left-full z-[99] lg:w-[100%] w-[60%] transition-all duration-300">
+        <x-layout.sidebar />
+</aside>
 
-        <div class="p-[20px] lg:p-[40px] !pb-[150px]  overflow-y-auto h-screen">
-            <!-- KPI Cards Section -->
-            <section class="kpi-cards">
+    <!-- Main Content -->
+    <div class="flex-1">
+        <x-layout.header />
+
+        <main class="p-[20px] lg:p-[40px] !pb-[150px] overflow-y-auto h-screen">
+
+            <!-- KPI SECTION -->
+            <section aria-labelledby="kpi-section-title">
+                <h2 id="kpi-section-title" class="sr-only">
+                    Key Performance Indicators
+                </h2>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    @include('components.kpi-card', [
-                        'title' => 'Total Orders',
-                        'value' => '120',
-                        'icon' => 'assets/images/icons/heart.svg',
-                        'trend' => '5% Patients',
-                        'trend_up' => '(↑ #3% from last week)',
-                        'color' => '#4A90E2'
-                    ])
+                    <x-kpi-card
+                        title="Total Orders"
+                        value="120"
+                        icon="assets/images/icons/heart.svg"
+                        trend="5% Patients"
+                        trendUp="↑ 3% from last week"
+                        background="#4A90E2"
+                    />
 
-                    @include('components.kpi-card', [
-                        'title' => 'Revenue Today',
-                        'value' => '62',
-                        'icon' => 'assets/images/icons/order.svg',
-                        'trend' => 'New orders',
-                        'trend_up' => '(↑ #3% from last week)',
-                        'color' => '#4A90E2'
-                    ])
+                    <x-kpi-card
+                        title="Revenue Today"
+                        value="62"
+                        icon="assets/images/icons/order.svg"
+                        trend="New orders"
+                        trendUp="↑ 3% from last week"
+                        background="#4A90E2"
+                    />
 
-                    @include('components.kpi-card', [
-                        'title' => 'Active Users',
-                        'value' => '1250',
-                        'icon' => 'assets/images/icons/inventory.svg',
-                        'trend' => 'Current Stock',
-                        'trend_up' => '↓ #2% from last week',
-                        'color' => '#E74C3C'
-                    ])
+                    <x-kpi-card
+                        title="Active Users"
+                        value="1250"
+                        icon="assets/images/icons/inventory.svg"
+                        trend="Current Stock"
+                        trendUp="↓ 2% from last week"
+                        background="#E74C3C"
+                    />
 
-                    @include('components.kpi-card', [
-                        'title' => 'Pending Tasks',
-                        'value' => '25',
-                        'icon' => 'assets/images/icons/tasks.svg',
-                        'trend' => 'Tasks Completed',
-                    'trend_up' => '↑ #2% from last week',
-                        'color' => '#10847E'
-                    ])
+                    <x-kpi-card
+                        title="Pending Tasks"
+                        value="25"
+                        icon="assets/images/icons/tasks.svg"
+                        trend="Tasks Completed"
+                        trendUp="↑ 2% from last week"
+                        background="#10847E"
+                    />
                 </div>
             </section>
 
-            <!-- Analytics Cards Section -->
-            <section class="analytics-cards">
+            <!-- ANALYTICS -->
+            <section aria-labelledby="analytics-section-title">
+                <h2 id="analytics-section-title" class="sr-only">
+                    Analytics Overview
+                </h2>
+
                 <div class="grid grid-cols-12 gap-6 mb-8">
-                    @include('components.analytics-card', [
-                        'title' => 'Sales Overview',
-                        'chartType' => 'line',
-                    ])
 
-                    @include('components.analytics-card', [
-                        'title' => 'Top Products',
-                        'chartType' => 'bar',
-                    ])
+                    <x-analytics-card
+                        class="col-span-12 md:col-span-6 lg:col-span-4"
+                        title="Sales Overview"
+                        chartType="line"
+                    />
 
-                    @include('components.analytics-card', [
-                        'title' => 'Customer Distribution',
-                        'chartType' => 'bar-1',
-                    ])
-          
-                        <div class="col-span-12 lg:order-[inherit] order-1 lg:col-span-8">
-                    @include('components.action-table')
-                        </div>
-               @include('components.analytics-card', [
-                        'title' => 'Customer Distribution',
-                        'chartType' => 'pie',
-                        'description' => 'Customers by region'
-                    ])
-                  </div>
+                    <x-analytics-card
+                        class="col-span-12 md:col-span-6 lg:col-span-4"
+                        title="Top Products"
+                        chartType="bar"
+                    />
+
+                    <x-analytics-card
+                        class="col-span-12 md:col-span-6 lg:col-span-4"
+                        title="Customer Distribution"
+                        chartType="doughnut"
+                    />
+
+                    <!-- ACTION TABLE -->
+                    <div class="col-span-12 lg:col-span-8 order-1 lg:order-none">
+                        <x-action-table />
+                    </div>
+
+                    <x-analytics-card
+                        class="col-span-12 md:col-span-6 lg:col-span-4"
+                        title="Customer Distribution"
+                        chartType="pie"
+                        description="Customers by region"
+                    />
+
+                </div>
             </section>
-        </div>
+
+        </main>
     </div>
 
-     @include('components.quick-actions')
+    <!-- Quick Actions -->
+    <x-quick-actions />
 
 </div>
 @endsection
-
-@push('scripts')
-@endpush

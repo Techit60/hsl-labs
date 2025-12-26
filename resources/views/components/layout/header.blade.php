@@ -1,6 +1,6 @@
 <header class="bg-white px-6 lg:px-8 py-4 flex items-center justify-between">
 <div class="head flex gap-0 md:gap-4 lg:gap-2">
-	<img src="assets/images/leftmenu.svg" onclick="openMenu()" class="lg:hidden h-7 w-7 block" alt=""/>
+	<img src="assets/images/leftmenu.svg" onclick="openMenu()" class="h-5 w-5 cursor-pointer block" alt=""/>
 	<h1 class="text-2xl md:block hidden font-bold ">Daily Operations Dashboard</h1>
 </div>
 <div class="flex items-center gap-4">

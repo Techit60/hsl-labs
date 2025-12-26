@@ -26,7 +26,7 @@
                     },
                     colors: {
                         'primary-color': {
-                            500: '#10837E', 
+                            500: '#0066FF', 
                         },
                         'secondary-color':'#CFE6E5'
                     },
@@ -42,13 +42,24 @@
             </main>
     </div>
     @stack('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 function openMenu() {
   const sidebar = document.getElementById("sidebar");
-  sidebar.classList.toggle("left-0");
-  sidebar.classList.toggle("-left-full");
+    const asidebar = document.querySelector("aside");
+let hideLable=document.querySelectorAll(".hide-label");
+  if(window.innerWidth<1024){
+    sidebar.classList.toggle("left-0");
+    sidebar.classList.toggle("-left-full");
+  }else{
+    asidebar.classList.toggle("lg:!basis-[4%]");
+    hideLable.forEach(element => {
+      element.classList.toggle("hidden");
+    });
+    // asidebar.classList.toggle("-left-full");
+    
+  }
 }
 
 </script>

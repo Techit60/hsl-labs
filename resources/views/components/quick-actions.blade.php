@@ -1,4 +1,4 @@
-<div class="fixed bottom-0 lg:bottom-[20px] overflow-auto lg:rounded-[10px] lg:translate-x-[-50%] w-[100%] lg:w-[60%] left-0 lg:left-[55%] bg-[#10847E] right-0 z-[1] lg:p-4 py-1.5 px-2">
+<div class="fixed bottom-0 lg:bottom-[20px] overflow-auto lg:rounded-[10px] lg:translate-x-[-50%] w-[100%] lg:w-[60%] left-0 lg:left-[55%] bg-primary-color-500 right-0 z-[1] lg:p-4 py-1.5 px-2">
 	<div class="flex items-center bottom_bar justify-around gap-4 lg:gap-2">
 		<button class="lg:flex text-center items-center flex-[auto] grow-0 shrink-0 gap-2 py-1 rounded-lg text-white hover:bg-opacity-30 transition-colors">
 		<svg class="lg:m-0 mx-[auto]" width="20" height="25" viewbox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">

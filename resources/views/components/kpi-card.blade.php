@@ -1,23 +1,19 @@
 <div class="col-span-1">
-	<div class="bg-secondary-color rounded-[10px] p-6">
-		<div class="flex items-star gap-10 mb-4">
-			<div class="w-[60px] h-[60px] bg-[#bddcdc] rounded-[50%] flex items-center justify-center">
-				<img src={{$icon}} alt=""/>
-			</div>
-			<div class="text-left">
-				<h3 class="text-[1.375rem] font-[800] opacity-[0.7]">{{$value}}</h3>
-				<div class="text-sm text-gray-600">
-					{{$trend}}
-				</div>
-			</div>
-		</div>
-		<div class="flex items-center justify-between">
-			<div class="text-sm font-medium text-gray-700">
+	<div class="bg-[{{$background}}] shadow-[0_4px_14px_rgba(0,0,0,0.25)] rounded-[16.3861px] p-6">
+		<div class="flex justify-between items-start gap-10">
+			<div class="text-white">
+				<div class="text-sm">
 				{{$title}}
 			</div>
-			<div class="text-[{{$color}}] text-xs">
-				{{$trend_up}}
+			<div class="flex items-end gap-2 mt-[20px]">
+				<h3 class="text-[1.375rem] font-[800] text-white text-[35px]">{{$value}}</h3>
+				<div class="text-sm">
+					{{$trend}}
+				</div>
+				</div>
 			</div>
+				<img src={{$icon}} alt=""/>
 		</div>
+	
 	</div>
 </div>
