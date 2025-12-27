@@ -3,7 +3,7 @@
         
         <div class="flex items-start justify-between mb-6">
             <div class="flex-1">
-                <h3 class="text-lg font-bold text-gray-800" id="chart-title-{{ $chartType }}-{{ Str::slug($title) }}">
+                <h3 class="text-lg font-bold text-black" id="chart-title-{{ $chartType }}-{{ Str::slug($title) }}">
                     {{ $title }}
                 </h3>
                 @if(isset($description))
@@ -25,13 +25,13 @@
                     <svg class="w-full h-full transform -rotate-90" viewBox="0 0 200 200" aria-hidden="true">
                         <title>Pie chart showing transaction distribution</title>
                         <circle cx="100" cy="100" r="80" fill="none" stroke="#f3f4f6" stroke-width="25"/>
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#f97316" stroke-width="25" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#0066FF" stroke-width="25" 
                                 stroke-dasharray="201 302" stroke-linecap="round" aria-label="Return: 40%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#a78bfa" stroke-width="25" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#11857F" stroke-width="25" 
                                 stroke-dasharray="100.5 402.5" stroke-dashoffset="-201" stroke-linecap="round" aria-label="Sale: 20%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="#10847E" stroke-width="25" 
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#F66D75" stroke-width="25" 
                                 stroke-dasharray="150.75 352.25" stroke-dashoffset="-301.5" stroke-linecap="round" aria-label="Distribute: 30%"
                                 class="transition-all duration-1000 ease-out hover:stroke-width-22"/>
                     </svg>
@@ -180,15 +180,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 scales: {
                     x: {
                         grid: { display: false, drawBorder: false },
-                        ticks: { color: '#374151', font: { size: 12, family: 'Nunito, sans-serif' }, padding: 8 }
+                        ticks: { color: 'rgba(3, 2, 41, 0.7)', font: { size: 11.5, family: "'Plus Jakarta Sans', sans-serif" }, padding: 4 }
                     },
                     y: {
                         beginAtZero: true,
                         min: 0,
                         max: 100,
                         ticks: {
-                            color: '#6b7280',
-                            font: { size: 11, family: 'Nunito, sans-serif' },
+                            color: 'rgba(3, 2, 41, 0.7)',
+                            font: { size: 11, fontFamily: 'Plus Jakarta Sans", sans-serif' },
                             stepSize: 20,
                             padding: 10
                         },
@@ -271,13 +271,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 scales: {
                     x: {
                         grid: { display: false, drawBorder: false },
-                        ticks: { color: '#000', font: { size: 12, family: 'Nunito, sans-serif' }, padding: 8 }
+                        ticks: { color: 'rgba(3, 2, 41, 0.7)', font: { size: 12, fontFamily: 'Plus Jakarta Sans", sans-serif' }, padding: 8 }
                     },
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            color: '#000',
-                            font: { size: 11, family: 'Nunito, sans-serif' },
+                            color: 'rgba(3, 2, 41, 0.7)',
+                            font: { size: 11, fontFamily: 'Plus Jakarta Sans", sans-serif' },
                             padding: 10,
                             callback: value => '$' + (value * 1000).toLocaleString()
                         },
@@ -295,10 +295,10 @@ document.addEventListener('DOMContentLoaded', function() {
         datasets: [{
             data: [35, 25, 20, 20],
             backgroundColor: [
-                '#10847E',
-                '#A78BFA',
-                '#F97316',
-                '#06B6D4'
+                '#0368FF',
+                '#F66C74',
+                '#EE9700',
+                '#10847E'
             ],
             borderColor: '#ffffff',
             borderWidth: 3,
@@ -339,8 +339,10 @@ document.addEventListener('DOMContentLoaded', function() {
             datalabels: {
                 color: '#ffffff',
                 font: {
-                    size: 13,
-                    weight: 'bold'
+                    size: 14,
+                    weight: 'bold',
+                    family: "'Plus Jakarta Sans', sans-serif",
+                    
                 },
                 formatter: (value, ctx) => {
                     const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
@@ -374,9 +376,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const value = context.parsed.y;
                 return value <= 15000 ? '#0066FF' : '#207F22';
             },
-            barPercentage: 0.6,
+            barPercentage: 0.45,
             categoryPercentage: 0.8,
-            borderRadius: 4
+            borderRadius:5
         }]
     },
     options: {
@@ -392,7 +394,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 display: false
             },
             tooltip: {
-                enabled: true
+                enabled: true,
+                backgroundColor: '#0066FF',
             },
             datalabels: { 
                 anchor: 'end',
@@ -400,10 +403,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 offset: 4,
                 color: '#1e293b',
                 font: {
-                    size: 13,
-                    weight: 'bold',
-                    family: 'Arial, sans-serif'
-                },
+                    size: 12.5,
+family: "'Plus Jakarta Sans', sans-serif"                },
                 formatter: function(value) {
                     return value.toLocaleString();
                 }
@@ -418,7 +419,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 ticks: {
                     color: '#374151',
                     font: {
-                        size: 12
+                       size: 12.5,
+family: "'Plus Jakarta Sans', sans-serif"
                     }
                 }
             },

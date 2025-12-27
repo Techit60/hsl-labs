@@ -5,19 +5,19 @@
         >
             <thead>
                 <tr>
-                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-medium text-black-600">
+                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-semibold text-black-600">
                         SN
                     </th>
-                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-medium text-black-600">
+                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-semibold text-black-600">
                         Action Tracker
                     </th>
-                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-medium text-black-600">
+                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-semibold text-black-600">
                         Assigned To
                     </th>
-                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-medium text-black-600">
+                    <th scope="col" class="text-left whitespace-nowrap py-3 px-4 text-sm font-semibold text-black-600">
                         Priority
                     </th>
-                    <th scope="col" class="text-center py-3 px-4 text-sm font-medium text-black-600">
+                    <th scope="col" class="text-center py-3 px-4 text-sm font-semibold text-black-600">
                         Status
                     </th>
                 </tr>

@@ -27,13 +27,13 @@
                     <x-kpi-card
                         title="Patients"
                         value="120"
-                        icon="assets/images/icons/heart.svg"
+                        icon="assets/images/icons/patient.svg"
                         trend="51"
                         background="linear-gradient(79.81deg,_#4188F2_7.62%,_#4188F2_41.63%,_#0066FF_94.59%)"
                     />
 
                     <x-kpi-card
-                        title="Revenue Today"
+                        title="Order"
                         value="62"
                         icon="assets/images/icons/order.svg"
                         trend="32"
@@ -41,7 +41,7 @@
                     />
 
                     <x-kpi-card
-                           title="Active Users"
+                        title="Inventory"
                         value="1250"
                         icon="assets/images/icons/inventory.svg"
                         trend="4"
@@ -49,7 +49,7 @@
                     />
 
                     <x-kpi-card
-                        title="Pending Tasks"
+                        title="Completed"
                         value="25"
                         icon="assets/images/icons/tasks.svg"
                         trend="62"
