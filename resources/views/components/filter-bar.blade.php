@@ -1,7 +1,7 @@
 @props([
     'title' => 'Smart Filter',
 ])  
-<header class="flex flex-wrap p-6 gap-5 pb-0 items-center justify-between mb-6">
+<header class="flex flex-wrap px-[15px] gap-5 pb-0 items-center justify-between mb-6">
         <h2
             id="action-table-title"
             class="text-lg font-bold text-black"
@@ -10,7 +10,7 @@
         </h2>
 
         <div class="flex items-center gap-2 lg:ml-auto">
-            <div class="relative grow-0 shrink-0 basis-[165px]">
+            <div class="relative grow-0 shrink-0 basis-[260px]">
                 <label for="action-search" class="sr-only">
                     Search actions
                 </label>
@@ -30,7 +30,7 @@
                     id="action-search"
                     type="text"
                     placeholder="Search"
-                    class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-full text-sm
+                    class="pl-10 pr-4 py-2 bg-[#FAFAFB] border border-gray-200 rounded-lg w-full text-sm
                            focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
             </div>
@@ -38,8 +38,8 @@
             <div class="relative">
                 <button
                     id="filter-button"
-                    class="px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium
-                           text-gray-700 bg-white hover:bg-gray-50 flex items-center gap-2
+                    class="px-4 py-2 border border-white-200 rounded-lg text-sm font-medium
+                           text-white bg-primary-color-500  flex items-center gap-2
                            focus:outline-none focus:ring-2 focus:ring-teal-500"
                     aria-label="Open filters"
                 >
@@ -48,7 +48,7 @@
                               d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
                     </svg>
                     Filter
-                    <span id="filter-count" class="hidden ml-1 px-2 py-0.5 bg-teal-500 text-white rounded-full text-xs">
+                    <span id="filter-count" class="hidden ml-1 px-2 py-0.5 bg-white text-primary-color-500 rounded-full text-xs">
                         0
                     </span>
                 </button>

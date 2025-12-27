@@ -7,7 +7,7 @@
 <div class="flex">
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="bg-white basis-[18%] h-screen fixed lg:static lg:left-0 -left-full z-[99] lg:w-[100%] w-[60%] transition-all duration-300">
+    <aside id="sidebar" class="bg-white basis-[15%] h-screen fixed lg:static lg:left-0 -left-full z-[99] lg:w-[100%] w-[60%] transition-all duration-300">
         <x-layout.sidebar />
 </aside>
 
@@ -34,7 +34,7 @@
 
                     <x-kpi-card
                         title="Order"
-                        value="62"
+                        value="64"
                         icon="assets/images/icons/order.svg"
                         trend="32"
                         background="linear-gradient(79.81deg,_#FDA090_7.62%,_#F98381_41.63%,_#F66C74_94.59%)"
@@ -42,7 +42,7 @@
 
                     <x-kpi-card
                         title="Inventory"
-                        value="1250"
+                        value="1680"
                         icon="assets/images/icons/inventory.svg"
                         trend="4"
                         background="linear-gradient(79.81deg,_#F0BD42_7.62%,_#FEBA3C_41.63%,_#EE9700_94.59%)"

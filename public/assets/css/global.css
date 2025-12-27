@@ -5,3 +5,20 @@ body{font-family: "Plus Jakarta Sans", sans-serif;
     height: 31px;
 }
 
+  .sort-icon {
+        display: inline-block;
+        margin-left: 0.5rem;
+        opacity: 0.3;
+        transition: opacity 0.2s;
+        vertical-align: middle;
+    }
+    th.sortable:hover .sort-icon {
+        opacity: 0.6;
+    }
+    .sort-icon.active {
+        opacity: 1;
+    }
+    th.sortable {
+        cursor: pointer;
+        user-select: none;
+    }

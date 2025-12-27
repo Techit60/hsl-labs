@@ -2,18 +2,19 @@
     <div class="bg-[{{$background}}] shadow-[0_4px_14px_rgba(0,0,0,0.25)] rounded-[16.3861px] p-6">
         <div class="flex justify-between items-start gap-10">
             <div class="text-white">
-                <div class="text-sm font-semibold">
+                <div class="text-[1rem] font-semibold">
                     {{$title}}
                 </div>
 
-                <div class="flex items-end gap-2 mt-[15px]">
-                    <h3 class="text-[35px] font-[800] text-white">
-                        {{$value}}
+                <div class="flex items-end gap-2 mt-[20px]">
+                    <h3 class="text-[48px] font-[800] text-white leading-none counter-animation" 
+                        data-target="{{$value}}">
+                        0
                     </h3>
 
-                    <div class="text-[0.75rem] flex gap-2 items-center
+                    <div class="text-[0.75rem] flex gap-2 items-center leading-none
                         {{ $trend < 10 ? 'bg-[#FFE5E5] text-[#FF2A2A]' : 'bg-[#DFFDDD] text-[#008000]' }}
-                        rounded-[30px] px-[10px] py-[4px]">
+                        rounded-[30px] px-[10px] py-[5px]">
 
                         {{$trend}}%
 
@@ -38,3 +39,4 @@
         </div>
     </div>
 </div>
+
